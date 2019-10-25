@@ -1,0 +1,5 @@
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Dominio\bin\Debug\Dls.DomainDrivenDesign.Dominio.dll
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Dominio\bin\Debug\Dls.DomainDrivenDesign.Dominio.pdb
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Dominio\obj\Debug\Dls.DomainDrivenDesign.Dominio.csprojAssemblyReference.cache
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Dominio\obj\Debug\Dls.DomainDrivenDesign.Dominio.dll
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Dominio\obj\Debug\Dls.DomainDrivenDesign.Dominio.pdb

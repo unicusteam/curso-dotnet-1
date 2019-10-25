@@ -1,0 +1,3 @@
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Apresentacao.Wf\obj\Debug\Dls.DomainDrivenDesign.Apresentacao.Wf.csprojAssemblyReference.cache
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Apresentacao.Wf\obj\Debug\Dls.DomainDrivenDesign.Apresentacao.Wf.Properties.Resources.resources
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Apresentacao.Wf\obj\Debug\Dls.DomainDrivenDesign.Apresentacao.Wf.csproj.GenerateResource.cache

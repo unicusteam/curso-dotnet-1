@@ -1,0 +1,1 @@
+C:\Users\danil\Source\Repos\Dls.DomainDrivenDesign\Dls.DomainDrivenDesign.Infraestrutura\obj\Debug\Dls.DomainDrivenDesign.Infraestrutura.csprojAssemblyReference.cache
