@@ -10,7 +10,6 @@ namespace FC.Simbra.Infraestrutura.Helpers
     public static class NHibernateHelper
     {
         private static ISessionFactory sessionFactory;
-        private static ITransaction transaction;
 
         public static void Configurar()
         {
@@ -29,28 +28,10 @@ namespace FC.Simbra.Infraestrutura.Helpers
             sessionFactory = fluentConfiguracao.BuildSessionFactory();
         }
 
-        public static ISession OpenSession(bool openTransaction = false)
+        public static ISession OpenSession()
         {
-            var session = sessionFactory.OpenSession();
-            if (openTransaction)
-            {
-                transaction = session.BeginTransaction();
-            }
-            return session;
+            return sessionFactory.OpenSession();
         }
-
-        public static void Commit()
-        {
-            try
-            {
-                transaction.Commit();
-            }
-            catch
-            {
-                transaction.Rollback();
-            }
-        }
-
 
     }
 }

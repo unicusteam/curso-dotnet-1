@@ -23,8 +23,8 @@ namespace FC.Simbra.Apresentacao.Gerencial
         {
             InitializeComponent();
             alunoServico = new AlunoServico();
-            cidadeServico = new CidadeServico();
-            disciplinaServico = new DisciplinaServico();
+            cidadeServico = new CidadeServico(alunoServico.Unidade);
+            disciplinaServico = new DisciplinaServico(alunoServico.Unidade);
         }
 
         private Aluno ObterAluno()

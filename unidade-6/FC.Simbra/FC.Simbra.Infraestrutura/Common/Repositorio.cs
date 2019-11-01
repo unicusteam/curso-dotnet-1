@@ -1,32 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using FC.Simbra.Dominio.Common;
+using NHibernate;
+using System.Collections.Generic;
 using System.Linq;
-using FC.Simbra.Dominio.Common;
-using FC.Simbra.Infraestrutura.Helpers;
 
 namespace FC.Simbra.Infraestrutura.Common
 {
-    public abstract class Repositorio<TEntidade, TIdentificador> : IRepositorio<TEntidade, TIdentificador>
+    public abstract class Repositorio<TEntidade, TId> : IRepositorio<TEntidade, TId>
     {
-         public void Excluir(TIdentificador id)
+        protected readonly ISession session;
+
+        public Repositorio(ISession session)
         {
-            NHibernateHelper.OpenSession(true).Delete(NHibernateHelper.OpenSession().Get<TEntidade>(id));
-            NHibernateHelper.Commit();
+            this.session = session;
+        }
+         public void Excluir(TId id)
+        {
+            session.Delete(session.Get<TEntidade>(id));
         }
 
-        public virtual TEntidade Obter(TIdentificador id)
+        public virtual TEntidade Obter(TId id)
         {
-            return NHibernateHelper.OpenSession().Get<TEntidade>(id);
+            return session.Get<TEntidade>(id);
         }
 
         public virtual IList<TEntidade> ObterTodos()
         {
-            return NHibernateHelper.OpenSession().Query<TEntidade>().ToList();
+            return session.Query<TEntidade>().ToList();
         }
 
         public virtual void Salvar(TEntidade entidade)
         {
-            NHibernateHelper.OpenSession(true).Merge(entidade);
-            NHibernateHelper.Commit();
+            session.Merge(entidade);
         }
     }
 }

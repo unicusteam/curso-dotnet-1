@@ -7,9 +7,17 @@ namespace FC.Simbra.Aplicacao.Gerencial
 {
     public class AlunoServico : ServicoAplicacao<Aluno, int, IAlunoRepositorio>
     {
+
         public AlunoServico()
+        { }
+
+        public AlunoServico(UnitOfWork unidade) : base(unidade)
         {
-            repositorio = new AlunoRepositorio();
+        }
+
+        protected override void InicializarServico()
+        {
+            repositorio = new AlunoRepositorio(Unidade.Sessao);
             validador = new AlunoValidador(repositorio);
         }
 

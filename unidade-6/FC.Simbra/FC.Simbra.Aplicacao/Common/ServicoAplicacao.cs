@@ -10,18 +10,50 @@ namespace FC.Simbra.Aplicacao.Common
         public bool ResultadoValido { get { return !Validacoes.Any();  } }
         public IList<string> Validacoes { get { return validador.Validacoes; } }
 
+        public UnitOfWork Unidade { get; }
+
         protected TRepositorio repositorio;
         protected IValidador<TEntidade> validador;
 
+        public ServicoAplicacao() : this(new UnitOfWork())
+        {
+        }
+
+        public ServicoAplicacao(UnitOfWork unidade)
+        {
+            Unidade = unidade;
+            InicializarServico();
+        }
+
+        protected virtual void InicializarServico()
+        {
+
+        }
+
         public virtual bool Salvar(TEntidade entidade)
         {
-            if (!validador.Validar(entidade))
+            try
             {
-                return false;
-            }
+                Unidade.AbrirTransacao();
 
-            repositorio.Salvar(entidade);
-            return true;
+                if (!validador.Validar(entidade))
+                {
+                    return false;
+                }
+
+                repositorio.Salvar(entidade);
+
+                Unidade.Commit();
+
+                return true;
+            }
+            catch (System.Exception ex)
+            {
+
+                Unidade.Rollback();
+                throw ex;
+            }
+            
         }
 
         public virtual TEntidade Obter(TIdentificador id)
